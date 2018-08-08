@@ -7,3 +7,5 @@
 - Crear base de datos **yelp** en phpmyadmin
 - ```composer install```
 - ```php artisan migrate```
+
+- commit
