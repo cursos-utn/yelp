@@ -12,4 +12,9 @@ class Lugar extends Model
     {
         return $this->belongsTo('App\Tipo');
     }
+    
+    public function reviews()
+    {
+        return $this->hasMany('App\Review');
+    }
 }
