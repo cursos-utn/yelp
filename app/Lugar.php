@@ -12,4 +12,9 @@ class Lugar extends Model
     {
         return $this->belongsTo('App\Tipo');
     }
+
+    public function creador()
+    {
+        return $this->belongsTo('App\User', 'creador_id');
+    }
 }

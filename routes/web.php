@@ -17,10 +17,6 @@ Route::get('/', function () {
 
 
 Route::get('/test', function () {
-    $lugares = \App\Lugar::all();
-    //var_dump($lugar);
-    foreach ($varilugaresble as $unLugar) {
-    	echo $unLugar->tipo->nombre;
-    }
+    echo \App\Review::find(1)->usuario;
     
 });
