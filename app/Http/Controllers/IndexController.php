@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Controller;
+namespace App\Http\Controllers;
 
 use App\Index;
 use App\Http\Controllers\Controller;
 
 class IndexController extends Controller
 {
-    public function mostrar()
+    public function index()
     {
         echo 'hola';
     }
 }
 
-?>
+?>  
