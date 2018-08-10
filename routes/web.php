@@ -10,9 +10,16 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Lugar;
+use Illuminate\Http\Request ; 
 
 Route::get('/', 'IndexController@index');
-
 Auth::routes();
-
 Route::get('/home', 'HomeController@index');
+
+Route::post('/search', function(Request $request)
+{
+    $requestBusqueda = $request->input('busqueda');
+    $resultado = Lugar::where('nombre', 'like', "%$requestBusqueda%")->get();
+    var_dump($resultado);
+});
