@@ -12,9 +12,3 @@
 */
 
 Route::get('/', 'IndexController@index');
-
-
-Route::get('/test', function () {
-    echo \App\Review::find(1)->usuario;
-    
-});
