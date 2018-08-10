@@ -6,8 +6,6 @@ Use Illuminate\Database\Eloquent\Model;
 
 
 
-
-
 class Lugar extends Model
 {
     protected $table="lugar";
@@ -16,13 +14,15 @@ class Lugar extends Model
     {
         return $this->belongsTo('App\Tipo');
     }
- public function creador()
+
+ 
+
+public function creador()
+
     {
         return $this->belongsTo('App\User', 'creador_id');
     }
 }
 
 ?>
-
-   
 
