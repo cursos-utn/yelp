@@ -15,3 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/test', function() {
+    $lugar= App\Lugar::all();
+    echo $lugar->tipo->nombre;
+});
+
