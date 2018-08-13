@@ -12,14 +12,24 @@
 */
 use App\Lugar;
 use Illuminate\Http\Request ; 
+use Illuminate\Support\Facades\Input;
 
 Route::get('/', 'IndexController@index');
 Auth::routes();
 Route::get('/home', 'HomeController@index');
 
-Route::post('/search', function(Request $request)
-{
-    $requestBusqueda = $request->input('busqueda');
-    $resultado = Lugar::where('nombre', 'like', "%$requestBusqueda%")->get();
-    var_dump($resultado);
-});
+Route::post('/search',function(){
+    //dd($request);
+    $q = Input::get ( 'busqueda' );
+    
+    $requestBusqueda = Lugar::where('nombre','LIKE','%'.$q.'%')->get();
+    
+    $array = ['lugares'=>$requestBusqueda, 'query'=>$q];
+    $mensajeError= ['mensaje'=>"No hay resultados"];
+    
+    if(count($requestBusqueda) > 0)
+        return view('resultado', $array );
+    else 
+        return view ('resultado', $mensajeError);
+
+ });
