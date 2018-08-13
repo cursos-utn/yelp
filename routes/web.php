@@ -34,7 +34,11 @@ Route::post('/search',function(){
 
  });
 
-
+Route::get('/tipo/{id}', function($id) {
+	$tipo = \App\Tipo::find($id);
+	return view("tipo_listado", ["tipo" => $tipo]);
+	
+});
 
 Route::get('/lugares', 'LugarController@listarLugar');
 
