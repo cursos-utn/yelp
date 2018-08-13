@@ -14,7 +14,9 @@ use App\Lugar;
 use Illuminate\Http\Request ; 
 use Illuminate\Support\Facades\Input;
 
-Route::get('/', 'IndexController@index');
+//Route::get('/', 'IndexController@index');
+Route::get('/', 'LugarController@listarLugar');
+
 Auth::routes();
 Route::get('/home', 'HomeController@index');
 
