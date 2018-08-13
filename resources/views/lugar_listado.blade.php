@@ -16,12 +16,24 @@
                 <thead>
                     <tr>
                         <th>Nombre</th>
+                        <th>Direccion</th>
+                        <th>Barrio</th>
+                        <th>Horarios</th>
+                        <th>Telefonos</th>
+                        <th>Escala de Costo</th>
+                        <th>Reputacion</th>
+                        
                     </tr>
                 </thead>
                 @foreach ($list as $unaList)
                     <tr>
                         <td>{{$unaList->nombre}}</td>
-                        
+                        <td>{{$unaList->direccion}}</td>
+                        <td>{{$unaList->barrio}}</td>
+                        <td>{{$unaList->horarios}}</td>
+                        <td>{{$unaList->telefonos}}</td>
+                        <td>{{$unaList->escala_costos}}</td>
+                        <td>{{$unaList->reputacion}}</td>
                     </tr>
                 @endforeach
             </table>

@@ -15,4 +15,4 @@ Route::get('/', 'IndexController@index');
 
 
 
-Route::get('/', 'LugarController@listarLugar');
+Route::get('/lugares', 'LugarController@listarLugar');
