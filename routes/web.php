@@ -18,9 +18,9 @@ Route::get('/', 'IndexController@index');
 Auth::routes();
 Route::get('/home', 'HomeController@index');
 
-Route::post('/search',function(){
+Route::post('/search',function(Request $request){
     //dd($request);
-    $q = Input::get ( 'busqueda' );
+    $q = $request->input ( 'busqueda' );
     
     $requestBusqueda = Lugar::where('nombre','LIKE','%'.$q.'%')->get();
     

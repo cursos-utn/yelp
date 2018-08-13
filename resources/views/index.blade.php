@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
-<h1>
-
+@section('content')
 <div class="container">
     <form action="{{URL::to('/search')}}" method="POST" role="search">
         {{csrf_field()}}
@@ -12,4 +11,4 @@
         </div>    
     </form>
 </div>
-</h1>
+@section('content')
