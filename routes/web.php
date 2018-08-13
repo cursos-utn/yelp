@@ -33,3 +33,9 @@ Route::post('/search',function(){
         return view ('resultado', $mensajeError);
 
  });
+
+
+
+Route::get('/lugares', 'LugarController@listarLugar');
+
+?>
