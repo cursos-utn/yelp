@@ -8,7 +8,7 @@
     </head>
     <body>
         <div class="container">
-            <h1>Lugares</h1>
+            <h1>Tipo {{$tipo->nombre}}</h1>
             
                 </div>
            
@@ -26,16 +26,16 @@
                         
                     </tr>
                 </thead>
-                @foreach ($list as $unaList)
+                @foreach ($tipo->lugares as $unLugar)
                     <tr>
-                        <td>{{$unaList->nombre}}</td>
-                        <td>{{$unaList->direccion}}</td>
-                        <td>{{$unaList->barrio}}</td>
-                        <td>{{$unaList->horarios}}</td>
-                        <td>{{$unaList->telefonos}}</td>
-                        <td>{{$unaList->escala_costos}}</td>
-                        <td>{{$unaList->reputacion}}</td>
-                        <td>{{$unaList->tipo->nombre}}</td>
+                        <td>{{$unLugar->nombre}}</td>
+                        <td>{{$unLugar->direccion}}</td>
+                        <td>{{$unLugar->barrio}}</td>
+                        <td>{{$unLugar->horarios}}</td>
+                        <td>{{$unLugar->telefonos}}</td>
+                        <td>{{$unLugar->escala_costos}}</td>
+                        <td>{{$unLugar->reputacion}}</td>
+                        <td>{{$unLugar->tipo->nombre}}</td>
                     </tr>
                 @endforeach
             </table>

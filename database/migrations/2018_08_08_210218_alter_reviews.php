@@ -13,7 +13,7 @@ class AlterReviews extends Migration
      */
     public function up()
     {
-        Schema::table('reviews', function (Blueprint $table) {
+        Schema::table('review', function (Blueprint $table) {
             $table->integer('REpuntajemalo');
         });
 
