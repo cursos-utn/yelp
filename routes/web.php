@@ -12,3 +12,7 @@
 */
 
 Route::get('/', 'IndexController@index');
+
+
+
+Route::get('/', 'LugarController@listarLugar');

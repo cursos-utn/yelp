@@ -22,7 +22,10 @@ class IndexController extends Controller
     {
         echo'hola';
     }
+
+
+
 }
 
-    
+
 ?>  

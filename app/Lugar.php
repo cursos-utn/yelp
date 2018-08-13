@@ -22,6 +22,10 @@ public function creador()
     {
         return $this->belongsTo('App\User', 'creador_id');
     }
+
+
+
+
 }
 
 ?>
