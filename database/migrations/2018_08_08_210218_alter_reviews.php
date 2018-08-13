@@ -26,7 +26,7 @@ class AlterReviews extends Migration
      */
     public function down()
     {
-        Schema::table('reviews', function (Blueprint $table) {
+        Schema::table('review', function (Blueprint $table) {
         $table->dropColumn('puntaje_negativo');
         
     });
