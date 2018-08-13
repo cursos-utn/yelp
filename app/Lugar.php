@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Lugar extends Model
@@ -17,3 +18,5 @@ class Lugar extends Model
         return $this->belongsTo('App\User', 'creador_id');
     }
 }
+}
+?>
