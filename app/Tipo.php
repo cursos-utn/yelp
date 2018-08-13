@@ -1,9 +1,8 @@
 <?php
 
 namespace App;
-Use Illuminate\Database\Eloquent\Model;
 
-use Illuminate\Database\Eloquent\Model;
+
 
 class Tipo extends Model
 {
