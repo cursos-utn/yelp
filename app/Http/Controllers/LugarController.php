@@ -10,7 +10,12 @@ class LugarController extends Controller {
    
 
    public function listarLugar() {
-    	$list = \App\Lugar::all();
+    	
+    	$list = \App\Lugar::
+    	orderBy('reputacion', 'desc')
+    	->take(5)
+    	->get();
+    	
     	return view('lugar_listado', ['list' => $list]);
     }
 
