@@ -18,7 +18,20 @@ use Illuminate\Support\Facades\Input;
 Route::get('/', 'LugarController@listarLugar');
 
 Auth::routes();
-Route::get('/home', 'HomeController@index');
+
+
+Route::get('/prueba',function(Request $request){
+
+        $url = "api.openweathermap.org/data/2.5/weather?appid=442712c5b3e3f16ae33cea34ee272f91&zip=1826,AR&units=metric";
+        $response = \Httpful\Request::get($url)
+        ->expectsJson()
+        ->send();
+        echo "Status code: ".$response->code;
+        echo "<br>";
+        echo "Temperatura: ".$response->body->main->temp;
+        
+});
+
 
 Route::post('/search',function(){
     //dd($request);
