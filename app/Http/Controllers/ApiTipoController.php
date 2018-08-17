@@ -1,8 +1,10 @@
 <?php
+namespace App\Http\Controllers;
 
 use App\Tipo;
 use App\Http\Controllers\Controller;
-namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+
 
 class ApiTipoController extends Controller{
 
@@ -13,26 +15,45 @@ class ApiTipoController extends Controller{
  public function agregar(Request $request)
     {
         return Tipo::create($request->all());
+    }
+
 
 
     public function update(Request $request, $id)
     {
-        $tipoPut = Tipo::findOrFail($id);
-        $tipoPut->update($request->all());
+        try {
+            $tipoPut = Tipo::findOrFail($id);
+            $tipoPut->update($request->all());
 
-        return $tipoPut;
+            return $tipoPut;
+        } catch(\Exception $e) {
+            return Response("No encontrado", 404);
+        }
     }
 
     public function traerPorId($id)
-    {
-        return \App\Tipo::find($id);
+    {   
+        /* Opcion 1 */
+        try{
+            return \App\Tipo::findOrFail($id);
+        } catch(\Exception $e) {
+            return Response("No encontrado", 404);
+        }
+        /* Opcion 2 */
+        /*
+        $tipo = \App\Tipo::find($id);
+        if (!$tipo)
+            return Response("No encontrado", 404);
+        return $tipo;
+        */
+
     }
 
     public function borrar($id){
         
         $borrado = \App\Tipo::find($id);
 
-        $borrado->delete()
+        $borrado->delete();
 
     }
 }

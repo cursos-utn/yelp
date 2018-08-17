@@ -22,16 +22,10 @@ Route::get('/user', function (Request $request) {
 
 
 
-Route::post('/tipos', function(Request $request) {
-    return Tipo::create($request->all);
-});
+Route::post('/tipos', 'ApiTipoController@agregar');
 
-Route::put('/tipos/{id}', function(Request $request, $id) {
-    $tipoPut = Tipo::findOrFail($id);
-    $tipoPut->update($request->all());
+Route::put('/tipos/{id}', 'ApiTipoController@update');
 
-    return $tipoPut;
-});
 Route::get('/tipos', 'ApiTipoController@listar');
 
 Route::get('/tipos/{id}', 'ApiTipoController@traerPorId');
