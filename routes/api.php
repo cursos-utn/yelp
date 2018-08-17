@@ -26,3 +26,6 @@ Route::put('update/{id}', function(Request $request, $id) {
 
     return $tipoPut;
 });
+Route::get('/tipos', 'ApiTipoController@listar');
+
+Route::get('/tipos/{id}', 'ApiTipoController@traerPorId');
