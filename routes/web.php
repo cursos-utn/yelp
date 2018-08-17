@@ -14,9 +14,24 @@ use App\Lugar;
 use Illuminate\Http\Request ; 
 use Illuminate\Support\Facades\Input;
 
-Route::get('/', 'IndexController@index');
+//Route::get('/', 'IndexController@index');
+Route::get('/', 'LugarController@listarLugar');
+
 Auth::routes();
-Route::get('/home', 'HomeController@index');
+
+
+Route::get('/prueba',function(Request $request){
+
+        $url = "api.openweathermap.org/data/2.5/weather?appid=442712c5b3e3f16ae33cea34ee272f91&zip=1826,AR&units=metric";
+        $response = \Httpful\Request::get($url)
+        ->expectsJson()
+        ->send();
+        echo "Status code: ".$response->code;
+        echo "<br>";
+        echo "Temperatura: ".$response->body->main->temp;
+        
+});
+
 
 Route::post('/search',function(Request $request){
     //dd($request);
@@ -34,7 +49,11 @@ Route::post('/search',function(Request $request){
 
  });
 
-
+Route::get('/tipo/{id}', function($id) {
+	$tipo = \App\Tipo::find($id);
+	return view("tipo_listado", ["tipo" => $tipo]);
+	
+});
 
 Route::get('/lugares', 'LugarController@listarLugar');
 
