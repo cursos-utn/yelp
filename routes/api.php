@@ -19,3 +19,7 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 Route::get('/listar', 'ApiTipoController@listar');
+
+Route::post('agregar', function(Request $request) {
+    return Tipo::create($request->all);
+});

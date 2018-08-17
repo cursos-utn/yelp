@@ -9,5 +9,8 @@ class ApiTipoController extends Controller{
     public function listar(){
         return \App\Tipo::all();
     }
-
+ public function agregar(Request $request)
+    {
+        return Tipo::create($request->all());
+    }
 }
