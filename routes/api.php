@@ -19,3 +19,10 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 Route::get('/listar', 'ApiTipoController@listar');
+
+Route::put('update/{id}', function(Request $request, $id) {
+    $tipoPut = Tipo::findOrFail($id);
+    $tipoPut->update($request->all());
+
+    return $tipoPut;
+});
