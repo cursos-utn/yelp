@@ -20,4 +20,4 @@ Route::get('/user', function (Request $request) {
 
 Route::get('/tipos', 'ApiTipoController@listar');
 
-Route::delete('/tipos/{id}', 'ApiTipoController@borrar');
+Route::get('/tipos/{id}', 'ApiTipoController@traerPorId');
