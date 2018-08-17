@@ -26,7 +26,7 @@ Route::post('/tipos', function(Request $request) {
     return Tipo::create($request->all);
 });
 
-Route::put('tipos/{id}', function(Request $request, $id) {
+Route::put('/tipos/{id}', function(Request $request, $id) {
     $tipoPut = Tipo::findOrFail($id);
     $tipoPut->update($request->all());
 
