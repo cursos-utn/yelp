@@ -10,6 +10,11 @@ class ApiTipoController extends Controller{
         return \App\Tipo::all();
     }
 
+ public function agregar(Request $request)
+    {
+        return Tipo::create($request->all());
+
+
     public function update(Request $request, $id)
     {
         $tipoPut = Tipo::findOrFail($id);
@@ -28,5 +33,6 @@ class ApiTipoController extends Controller{
         $borrado = \App\Tipo::find($id);
 
         $borrado->delete()
+
     }
 }
