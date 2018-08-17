@@ -10,4 +10,9 @@ class ApiTipoController extends Controller{
         return \App\Tipo::all();
     }
 
+    public function traerPorId($id)
+    {
+        return \App\Tipo::find($id);
+    }
+
 }
