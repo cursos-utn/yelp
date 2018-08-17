@@ -23,8 +23,12 @@ class ApiTipoController extends Controller{
     {
         try {
             $tipoPut = Tipo::findOrFail($id);
+            $this->validate($request, [
+       'nombre' => 'required',
+   		]);
             $tipoPut->update($request->all());
 
+       
             return $tipoPut;
         } catch(\Exception $e) {
             return Response("No encontrado", 404);
