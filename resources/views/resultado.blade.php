@@ -1,4 +1,7 @@
 @extends('layouts.app')
+
+@section('content')
+
 <div class="container">
     <form action="{{URL::to('/search')}}" method="POST" role="search">
         {{csrf_field()}}
@@ -9,6 +12,7 @@
         </div>    
     </form>
 </div>
+
 <div class="container">
    @if(isset($lugares))
 
@@ -33,3 +37,4 @@
     <p>{{ $mensaje }}</p>
    @endif
 </div>
+@endsection
