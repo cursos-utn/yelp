@@ -10,6 +10,14 @@ class ApiTipoController extends Controller{
         return \App\Tipo::all();
     }
 
+    public function update(Request $request, $id)
+    {
+        $tipoPut = Tipo::findOrFail($id);
+        $tipoPut->update($request->all());
+
+        return $tipoPut;
+    }
+
     public function traerPorId($id)
     {
         return \App\Tipo::find($id);

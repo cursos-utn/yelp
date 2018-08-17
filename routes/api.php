@@ -18,6 +18,14 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
 
+Route::get('/listar', 'ApiTipoController@listar');
+
+Route::put('update/{id}', function(Request $request, $id) {
+    $tipoPut = Tipo::findOrFail($id);
+    $tipoPut->update($request->all());
+
+    return $tipoPut;
+});
 Route::get('/tipos', 'ApiTipoController@listar');
 
 Route::get('/tipos/{id}', 'ApiTipoController@traerPorId');
