@@ -10,4 +10,11 @@ class ApiTipoController extends Controller{
         return \App\Tipo::all();
     }
 
+    public function borrar($id){
+        
+        $borrado = \App\Tipo::find($id);
+
+        $borrado->delete()
+    }
+
 }

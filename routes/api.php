@@ -18,4 +18,6 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
 
-Route::get('/listar', 'ApiTipoController@listar');
+Route::get('/tipos', 'ApiTipoController@listar');
+
+Route::delete('/tipos/{id}', 'ApiTipoController@borrar');
