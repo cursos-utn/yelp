@@ -14,6 +14,10 @@ class ApiTipoController extends Controller{
 
  public function agregar(Request $request)
     {
+        $validator = \Validator::make($request->all(), ['nombre' => 'required']);
+        if ($validator->fails()) {
+            return response()->json($validator->messages(), 400);
+        }
         return Tipo::create($request->all());
     }
 
@@ -28,7 +32,7 @@ class ApiTipoController extends Controller{
    		]);
             $tipoPut->update($request->all());
 
-       
+
             return $tipoPut;
         } catch(\Exception $e) {
             return Response("No encontrado", 404);
@@ -36,7 +40,7 @@ class ApiTipoController extends Controller{
     }
 
     public function traerPorId($id)
-    {   
+    {
         /* Opcion 1 */
         try{
             return \App\Tipo::findOrFail($id);
@@ -54,7 +58,7 @@ class ApiTipoController extends Controller{
     }
 
     public function borrar($id){
-        
+
         $borrado = \App\Tipo::find($id);
 
         $borrado->delete();
