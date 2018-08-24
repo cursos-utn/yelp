@@ -59,4 +59,8 @@ Route::get('/lugares', 'LugarController@listarLugar');
 
 Route::get('/fragmentos/lugares.html', 'LugarController@listarFragmento');
 
+Route::get('/html', function() {
+    return view('principal');
+});
+
 ?>
