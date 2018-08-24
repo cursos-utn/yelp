@@ -57,4 +57,6 @@ Route::get('/tipo/{id}', function($id) {
 
 Route::get('/lugares', 'LugarController@listarLugar');
 
+Route::get('/fragmentos/lugares.html', 'LugarController@listarFragmento');
+
 ?>
