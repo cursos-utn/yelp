@@ -15,6 +15,9 @@ use App\Tipo;
 */
 
 Route::get('/user', function (Request $request) {
+	if ($request->user()->es_admin!=TRUE) {
+		// Salir porque no tiene permisos
+	}
     return $request->user();
 })->middleware('auth:api');
 
@@ -31,3 +34,6 @@ Route::get('/tipos', 'ApiTipoController@listar');
 Route::get('/tipos/{id}', 'ApiTipoController@traerPorId');
 
 Route::delete('/tipos/{id}', 'ApiTipoController@borrar');
+
+
+Route::get('/lugares', 'ApiLugarController@listar');
