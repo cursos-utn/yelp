@@ -31,3 +31,5 @@ Route::get('/tipos', 'ApiTipoController@listar');
 Route::get('/tipos/{id}', 'ApiTipoController@traerPorId');
 
 Route::delete('/tipos/{id}', 'ApiTipoController@borrar');
+
+Route::get('/lugares', 'ApiLugarController@listar');
