@@ -63,4 +63,8 @@ Route::get('/html', function() {
     return view('principal');
 });
 
+Route::get('/datatables', function() {
+    return view('datatables');
+});
+
 ?>
