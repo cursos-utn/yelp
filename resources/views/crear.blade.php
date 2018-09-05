@@ -10,9 +10,9 @@
 
 <h1>Crear Lugares</h1>
 
-<form method="get" action="{{URL::to('/lugares/crear.html')}}">
+<form method="post" action="/yelp/public/lugares">
     <input name="nombre" type="text"> 
-
+    <input type="submit" name="enviar">
 
 </form>
 
