@@ -17,5 +17,8 @@ class Lugar extends Model
     {
         return $this->belongsTo('App\User', 'creador_id');
     }
+
+    protected $fillable = ['tipo_id', 'direccion', 'barrio', 'horarios', 'telefonos', 'foto', 'creador_id'];
+
 }
 ?>
