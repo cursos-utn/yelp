@@ -67,4 +67,8 @@ Route::get('/datatables', function() {
     return view('datatables');
 });
 
+Route::get('/lugares/crear.html', 'LugarController@crear');
+
+
+
 ?>

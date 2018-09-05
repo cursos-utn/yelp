@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 
+
 class LugarController extends Controller {
    
 
@@ -34,6 +35,28 @@ class LugarController extends Controller {
     	->get();
     	
     	return view('lugar_fragmento', ['list' => $list]);
+    }
+
+    public function crear(Request $request) {
+          
+        return view('crear');
+    
+    }
+
+    public function agregar() {
+        //
+    }
+
+    public function ver($id) {
+        //
+    }
+
+    public function actualizar($id) {
+        //
+    }
+
+    public function borrar($id) {
+        //
     }
 
 }
