@@ -67,4 +67,15 @@ Route::get('/datatables', function() {
     return view('datatables');
 });
 
+Route::get('/lugares/crear', function () {
+    return view('agregar');
+})->middleware('auth');
+
+Route::post('/lugares', 'LugarController@agregar');
+
+Route::get('/lugares/{id}', function ($id) {
+    $datosLugar = \App\Lugar::find($id);
+    return view("ver_lugar", ['datosLugar' => $datosLugar]);
+});
+
 ?>

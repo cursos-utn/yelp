@@ -34,7 +34,26 @@ class LugarController extends Controller {
     	->get();
     	
     	return view('lugar_fragmento', ['list' => $list]);
-    }
+	}
+	
+	public function agregar(Request $request){
+		/* Para que solo agreguen admins
+		if ($request->user()->admin!=TRUE) {
+			return view('index');
+		}
+		*/
+
+		$post = new \App\Lugar();
+		$post->nombre = $request->nombre;
+		$post->direccion = $request->direccion;
+		$post->barrio = $request->barrio;
+		$post->horarios = $request->horarios;
+		$post->telefonos = $request->telefonos;
+		$post->foto = $request->foto;
+		$post->tipo_id = $request->tipo_id;
+		$post->creador_id = $request->user()->id;
+		$post->save();
+	}
 
 }
 
