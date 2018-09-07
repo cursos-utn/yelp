@@ -34,6 +34,21 @@ class LugarController extends Controller {
     	->get();
     	
     	return view('lugar_fragmento', ['list' => $list]);
+	}
+	
+	public function crear(Request $request)
+    {
+		$nuevoLugar = $request->all();
+		
+		$request->file('image')->move('public\images')->getFilename();
+
+        // Le aclaro acá cuál es el campo del FORM con nombre diferente.
+        $nuevoLugar['tipo_id'] = $nuevoLugar['tipo'];
+        $nuevoLugar['foto'] = $request->image->path();
+        $nuevoLugar['creador_id'] = $request->user()->id;
+
+        \App\Lugar::create($nuevoLugar);
+
     }
 
 }

@@ -1,12 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="container">
     <h1>Crear un nuevo lugar</h1>
-    <form action="{{URL::to('/lugares/crear')}}" method="POST" role="search" enctype="multipart/form-data">
+    <form method="POST" enctype="multipart/form-data">
         {{csrf_field()}}
         <div class="input-class d-flex">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" class="form-control" id="nombre" placeholder="Nombre del lugar">
+
             <select class="form-control" name="tipo" id="tipo">
                 <option value="1">Restaurant</option>
                 <option value="2">Bar</option>
@@ -24,11 +26,12 @@
             <label for="telefonos">Teléfono</label>
             <input type="text" name="telefonos" class="form-control" id="telefonos" placeholder="154564567">
 
-            <label for="image">Ejemplo file</label>
-            <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
+            <label for="image">Imagen</label>
+            <input type="file" name="image" class="form-control-file" id="image">
             
-            <button type="submit" class="btn btn-primary ml-auto">Subir
+            <button type="submit" class="btn btn-primary pull-right">Subir
             </button>
         </div>    
     </form>
 </div>
+@endsection

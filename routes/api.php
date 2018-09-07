@@ -31,19 +31,3 @@ Route::get('/tipos', 'ApiTipoController@listar');
 Route::get('/tipos/{id}', 'ApiTipoController@traerPorId');
 
 Route::delete('/tipos/{id}', 'ApiTipoController@borrar');
-
-
-///////////// Lugar
-
-Route::get('/lugares', 'ApiLugarController@listar');
-
-Route::get('/lugares/crear', 'ApiLugarController@crear');
-
-Route::post('/lugares', 'ApiLugarController@agregar');
-
-Route::get('/lugares/{id}', 'ApiLugarController@ver');
-
-Route::post('/lugares/{id}', 'ApiLugarController@actualizar');
-
-Route::get('/lugares/borrar/{id}', 'ApiLugarController@borrar');
-

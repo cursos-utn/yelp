@@ -55,12 +55,34 @@ Route::get('/tipo/{id}', function($id) {
 	
 });
 
-Route::get('/lugares', 'LugarController@listarLugar');
-
 Route::get('/fragmentos/lugares.html', 'LugarController@listarFragmento');
 
 Route::get('/html', function() {
     return view('principal');
 });
+
+///////////// Lugar
+
+Route::get('/lugares', 'LugarController@listarLugar');
+
+Route::get('/lugares/crear', function(){
+    return view('lugares_crear');
+})->middleware('auth');
+Route::post('/lugares/crear', 'LugarController@crear')->middleware('auth');
+
+//Route::post('/lugares', 'ApiLugarController@agregar');
+
+//Route::get('/lugares/{id}', 'ApiLugarController@ver');
+
+//Route::post('/lugares/{id}', 'ApiLugarController@actualizar');
+
+//Route::get('/lugares/borrar/{id}', 'ApiLugarController@borrar');
+
+
+
+
+
+
+
 
 ?>
