@@ -6,7 +6,7 @@
     <title>Modificar</title>
 </head>
 <body>
-    <form action="/lugares/{id}" method="post">
+    <form method="post">
         
             {{ csrf_field() }}
             <tr>
@@ -31,6 +31,7 @@
             </tr>
             <tr>
                 <h3>Editar Foto</h3>
+                <img src="$datosLugar->foto" alt="">
                 <td><input type="file", name="foto", value={{$datosLugar->foto}}></td>
             </tr>
             <tr>

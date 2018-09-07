@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-
-
 <div class="container">
     <form action="{{URL::to('/search')}}" method="POST" role="search">
         {{csrf_field()}}
@@ -13,11 +11,8 @@
     </form>
 </div>
 
-
-
         <div class="container">
             <h1>Lugares</h1>
-            
                 </div>
            
             <table class="table table-striped table-condensed">
@@ -34,6 +29,7 @@
                         
                     </tr>
                 </thead>
+                
                 @foreach ($list as $unaList)
                     <tr>
                         <td>{{$unaList->nombre}}</td>
@@ -48,7 +44,7 @@
                     </tr>
                 @endforeach
 
+                <a href=""></a>
             </table>
 
         </div>
-

@@ -9,13 +9,19 @@ use Illuminate\Http\Response;
 class LugarController extends Controller {
    
 
+	public function listadoTotal(){
+		$list = \App\Lugar::all();
+
+		return view('lista_total', ['list' => $list]);
+	}
+
    public function listarLugar() {
-    	
+		
     	$list = \App\Lugar::
     	orderBy('reputacion', 'desc')
     	->take(5)
     	->get();
-    	
+   	
     	return view('lugar_listado', ['list' => $list]);
     }
 
@@ -49,10 +55,45 @@ class LugarController extends Controller {
 		$post->barrio = $request->barrio;
 		$post->horarios = $request->horarios;
 		$post->telefonos = $request->telefonos;
-		$post->foto = $request->foto;
+		$post->foto = $request->foto->path();
 		$post->tipo_id = $request->tipo_id;
 		$post->creador_id = $request->user()->id;
 		$post->save();
+
+		return redirect('lugares');
+	}
+
+	public function actualizar(Request $request, $id){
+
+		$post = \App\Lugar::findOrFail($id);
+
+		if ($request->user()->id!=$post->creador_id) {
+			return redirect('index');
+		}
+
+		$post->nombre = $request->nombre;
+		$post->direccion = $request->direccion;
+		$post->barrio = $request->barrio;
+		$post->horarios = $request->horarios;
+		$post->telefonos = $request->telefonos;
+		$post->foto = $request->foto;
+		$post->tipo_id = $request->tipo_id;
+		$post->save();
+
+		return redirect('lugares');
+	}
+
+	public function deletear(Request $request, $id){
+
+		$post = \App\Lugar::findOrFail($id);
+
+		if ($request->user()->id!=$post->creador_id) {
+			return redirect('lugares');
+		}
+
+		$post->delete();
+
+		return redirect('lugares');
 	}
 
 }

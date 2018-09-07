@@ -10,7 +10,7 @@
     <title>Agregar</title>
 </head>
 <body>
-    <form action="/lugares" method="post">
+    <form action="/lugares" method="post" enctype="multipart/form-data">
         <table>
             {{ csrf_field() }}
             <tr>
@@ -28,8 +28,8 @@
             <tr>
                 <td><input type="text", name="telefonos", placeholder="Telefono"></td>
             </tr>
-            <tr>
-                <td><input type="file", name="foto", placeholder="Foto"></td>
+            <tr>    
+                <td><input type="file", name="foto",class="form-control-file", placeholder="Foto"></td>
             </tr>
             <tr>
                 <td><input type="text", name="tipo_id", placeholder="TipoID"></td>

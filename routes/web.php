@@ -78,4 +78,14 @@ Route::get('/lugares/{id}', function ($id) {
     return view("ver_lugar", ['datosLugar' => $datosLugar]);
 });
 
+Route::post('/lugares/{id}', 'LugarController@actualizar');
+
+Route::get('/lugares/borrar/{id}', function ($id) {
+    $datosLugar = \App\Lugar::find($id);
+    return view("deletear", ['datosLugar' => $datosLugar]);
+});
+
+Route::post('/lugares/borrar/{id}', 'LugarController@deletear');
+
+Route::get('/listado', 'LugarController@listadoTotal');
 ?>
