@@ -14,7 +14,7 @@ class LugarController extends Controller {
     	
     	$list = \App\Lugar::
     	orderBy('reputacion', 'desc')
-    	->take(5)
+    	//->take(5)
     	->get();
     	
     	return view('lugar_listado', ['list' => $list]);

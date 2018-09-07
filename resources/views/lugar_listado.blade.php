@@ -43,7 +43,7 @@
                         <td>{{$unaList->telefonos}}</td>
                         <td>{{$unaList->escala_costos}}</td>
                         <td>{{$unaList->reputacion}}</td>
-                        <td>{{$unaList->tipo->nombre}}</td>
+                        
                     </tr>
                 @endforeach
             </table>
