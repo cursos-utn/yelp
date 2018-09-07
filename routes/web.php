@@ -69,8 +69,9 @@ Route::get('/datatables', function() {
 
 Route::get('/lugares/crear.html', 'LugarController@crear');
 
-Route::post('/lugares', function() {
-    return view('agregar');
-});
+Route::post('/lugares', 'LugarController@agregar');
 
+Route::post('/lugares/actualizar.html', 'LugarController@actualizar');
+
+Route::get('/lugares/ver.html', 'LugarController@ver');
 ?>
