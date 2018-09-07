@@ -11,7 +11,9 @@
 <h1>Crear Lugares</h1>
 
 <form method="post" action="/yelp/public/lugares">
-    <input name="nombre" type="text"> 
+      {{ csrf_field() }}
+    <input name="nombre" type="text" placeholder="nombre">
+    <input type="text" name="direccion" placeholder="direccion"> 
     <input type="submit" name="enviar">
 
 </form>

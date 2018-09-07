@@ -70,7 +70,7 @@ Route::get('/datatables', function() {
 Route::get('/lugares/crear.html', 'LugarController@crear');
 
 Route::post('/lugares', function() {
-    return view('agregar')
-})
+    return view('agregar');
+});
 
 ?>

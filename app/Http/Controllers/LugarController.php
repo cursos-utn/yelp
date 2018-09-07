@@ -43,20 +43,42 @@ class LugarController extends Controller {
     
     }
 
-    public function agregar() {
-        //
+    public function agregar(Request $request){
+         $this->validate($request, [
+        'nombre' => 'required',
+        'direccion' => 'required',
+    ]);
+         $lugar = new \App\Lugar();
+         $lugar->nombre = $request->input("nombre");
+         $lugar->direccion = $request->input("direccion");
+         $lugar->save();
+         return redirect('/lugares');
     }
 
     public function ver($id) {
-        //
+         
+        $lugar = Lugar::find($id);
+
+        return view('ver')
+            ->with('lugar', $lugar);
     }
 
-    public function actualizar($id) {
-        //
+    public function actualizar(Request $request,$id) {
+         $this->validate($request, [
+        'nombre' => 'required',
+        'direccion' => 'required',
+    ]);
+         $lugar = App\Lugar::find($id);
+         $lugar->nombre = $request->input("nombre");
+         $lugar->direccion = $request->input("direccion");
+         $lugar->save();
+         return view('actualizar');
     }
 
     public function borrar($id) {
-        //
+         $lugar = App\Lugar::find($id);
+        $lugar->delete();
+        return redirect('/lugares');
     }
 
 }
