@@ -8,6 +8,10 @@ class Lugar extends Model
 {
     protected $table="lugar";
 
+    protected $fillable=[
+        "tipo_id", "foto","direccion","barrio","horarios","telefonos","updated_at","nombre"
+    ];
+
     public function tipo()
     {
         return $this->belongsTo('App\Tipo');
