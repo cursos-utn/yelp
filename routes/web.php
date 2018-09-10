@@ -71,7 +71,11 @@ Route::get('/lugares/crear.html', 'LugarController@crear');
 
 Route::post('/lugares', 'LugarController@agregar');
 
-Route::post('/lugares/{$id}', 'LugarController@actualizar');
+Route::post('/lugares/{id}', 'LugarController@actualizar');
 
-Route::get('/lugares/ver.html', 'LugarController@ver');
+Route::get('/lugares/{id}', 'LugarController@ver');
+
+Route::get('/lugares/borrar/{id}', 'LugarController@borrar');
+
+
 ?>

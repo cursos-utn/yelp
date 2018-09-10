@@ -57,10 +57,10 @@ class LugarController extends Controller {
 
     public function ver($id) {
          
-        $lugar = Lugar::find($id);
+        $lugar = \App\Lugar::find($id);
 
-        return view('ver')
-            ->with('lugar', $lugar);
+        return view('actualizar', ['lugar' =>$lugar]);
+            
     }
 
     public function actualizar(Request $request,$id) {
@@ -68,15 +68,16 @@ class LugarController extends Controller {
         'nombre' => 'required',
         'direccion' => 'required',
     ]);
-         $lugar = App\Lugar::find($id);
+         $lugar = \App\Lugar::find($id);
          $lugar->nombre = $request->input("nombre");
          $lugar->direccion = $request->input("direccion");
+       
          $lugar->save();
-         return view('actualizar');
+         return view('ver', ['lugar' =>$lugar]);
     }
 
     public function borrar($id) {
-         $lugar = App\Lugar::find($id);
+         $lugar = \App\Lugar::find($id);
         $lugar->delete();
         return redirect('/lugares');
     }

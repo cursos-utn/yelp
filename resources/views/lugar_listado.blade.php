@@ -31,10 +31,12 @@
                         <th>Escala de Costo</th>
                         <th>Reputacion</th>
                         <th>Tipo</th>
+
                         
                     </tr>
                 </thead>
                 @foreach ($list as $unaList)
+                    <button><a href="/yelp/public/lugares/{{$unaList->id}}">Editar</a></button>
                     <tr>
                         <td>{{$unaList->nombre}}</td>
                         <td>{{$unaList->direccion}}</td>
@@ -43,10 +45,10 @@
                         <td>{{$unaList->telefonos}}</td>
                         <td>{{$unaList->escala_costos}}</td>
                         <td>{{$unaList->reputacion}}</td>
-                        
+                            
                     </tr>
                 @endforeach
             </table>
-
+<button><a href="/yelp/public/lugares/crear.html"</a>Crear</button>
         </div>
 
