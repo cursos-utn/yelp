@@ -39,16 +39,21 @@ class LugarController extends Controller {
 	public function crear(Request $request)
     {
 		$nuevoLugar = $request->all();
-		
-		$request->file('image')->move('public\images')->getFilename();
+		$path = $request->file('image')->store('images');
 
         // Le aclaro acá cuál es el campo del FORM con nombre diferente.
         $nuevoLugar['tipo_id'] = $nuevoLugar['tipo'];
-        $nuevoLugar['foto'] = $request->image->path();
+        $nuevoLugar['foto'] = $path;
         $nuevoLugar['creador_id'] = $request->user()->id;
 
-        \App\Lugar::create($nuevoLugar);
+		\App\Lugar::create($nuevoLugar);
+		
+		return redirect()->back()->with('message', 'Lugar creado correctamente!');
 
+	}
+	
+	public function download($hash) {
+        return response()->download(storage_path('app/images/'.$hash));
     }
 
 }

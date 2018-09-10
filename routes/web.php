@@ -70,6 +70,8 @@ Route::get('/lugares/crear', function(){
 })->middleware('auth');
 Route::post('/lugares/crear', 'LugarController@crear')->middleware('auth');
 
+Route::get('/lugar/download/images/{hash}', 'LugarController@download');
+
 //Route::post('/lugares', 'ApiLugarController@agregar');
 
 //Route::get('/lugares/{id}', 'ApiLugarController@ver');

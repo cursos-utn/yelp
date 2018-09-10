@@ -21,6 +21,7 @@
                         <th>Escala de Costo</th>
                         <th>Reputacion</th>
                         <th>Tipo</th>
+                        <th>Imagen</th>
                         
                     </tr>
                 </thead>
@@ -34,6 +35,8 @@
                         <td>{{$unaList->escala_costos}}</td>
                         <td>{{$unaList->reputacion}}</td>
                         <td>{{$unaList->tipo->nombre}}</td>
+                        <td> <img src="{{ asset('/lugar/download/'.$unaList->foto)}}" class="img img-thumbnail" style="max-width: 120px"></td>
+                        
                     </tr>
                 @endforeach
             </table>
