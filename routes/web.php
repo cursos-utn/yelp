@@ -67,15 +67,14 @@ Route::get('/datatables', function() {
     return view('datatables');
 });
 
-Route::get('/lugares/crear', function () {
-    return view('agregar');
-})->middleware('auth');
+Route::get('/lugares/crear', 'LugarController@agregarVista')->middleware('auth');
 
 Route::post('/lugares', 'LugarController@agregar');
 
 Route::get('/lugares/{id}', function ($id) {
     $datosLugar = \App\Lugar::find($id);
-    return view("ver_lugar", ['datosLugar' => $datosLugar]);
+    $creador = \App\User::where('id',$datosLugar->creador_id)->first()->value('name');
+    return view("ver_lugar", ['datosLugar' => $datosLugar, 'creador' => $creador]);
 });
 
 Route::post('/lugares/{id}', 'LugarController@actualizar');

@@ -40,7 +40,7 @@
                         <td>{{$unaList->escala_costos}}</td>
                         <td>{{$unaList->reputacion}}</td>
                         <td>{{$unaList->tipo->nombre}}</td>
-                        <td><a href="/yelp/public/lugares/{{$unaList->id}}">Editar</a></td>
+                        <td><a href="/lugares/{{$unaList->id}}">Editar</a></td>
                     </tr>
                 @endforeach
 

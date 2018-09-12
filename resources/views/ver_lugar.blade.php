@@ -10,6 +10,9 @@
         
             {{ csrf_field() }}
             <tr>
+                <h3>Creado por el usuario {{$creador}}</h3>
+            </tr>
+            <tr>
                 <h3>Editar Nombre</h3>
                 <td><input type="text", name="nombre", value={{$datosLugar->nombre}}></td>
             </tr>

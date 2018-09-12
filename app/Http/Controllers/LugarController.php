@@ -41,6 +41,11 @@ class LugarController extends Controller {
     	
     	return view('lugar_fragmento', ['list' => $list]);
 	}
+
+	public function agregarVista(){
+		$listatipos = \App\Tipo::all();
+    	return view('agregar', ['ltipos' => $listatipos]);
+	}
 	
 	public function agregar(Request $request){
 		/* Para que solo agreguen admins
@@ -55,7 +60,9 @@ class LugarController extends Controller {
 		$post->barrio = $request->barrio;
 		$post->horarios = $request->horarios;
 		$post->telefonos = $request->telefonos;
-		$post->foto = $request->foto->path();
+		if($request->foto){
+			$post->foto = $request->foto->path();
+		}
 		$post->tipo_id = $request->tipo_id;
 		$post->creador_id = $request->user()->id;
 		$post->save();

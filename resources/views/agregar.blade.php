@@ -32,7 +32,14 @@
                 <td><input type="file", name="foto",class="form-control-file", placeholder="Foto"></td>
             </tr>
             <tr>
-                <td><input type="text", name="tipo_id", placeholder="TipoID"></td>
+                <td>
+                <select name="tipo_id">
+                <option>Selecciones un Tipo</option>
+                @foreach ($ltipos as $tipos)
+                    <option value="{{$tipos->id}}">{{$tipos->nombre}}</option>
+                @endforeach
+                </select>
+                <td/>
             </tr>
             <tr>
             <td><input type="submit", name="Enviar"></td>
