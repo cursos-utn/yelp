@@ -65,16 +65,13 @@ Route::get('/html', function() {
 
 Route::get('/lugares', 'LugarController@listarLugar');
 
-Route::get('/lugares/crear', function(){
-    return view('lugares_crear');
-})->middleware('auth');
+Route::get('/lugares/crear', 'LugarController@traerLugares')->middleware('auth');
+
 Route::post('/lugares/crear', 'LugarController@crear')->middleware('auth');
 
 Route::get('/lugar/download/images/{hash}', 'LugarController@download');
 
-//Route::post('/lugares', 'ApiLugarController@agregar');
-
-//Route::get('/lugares/{id}', 'ApiLugarController@ver');
+Route::get('/lugares/{id}', 'LugarController@ver');
 
 //Route::post('/lugares/{id}', 'ApiLugarController@actualizar');
 

@@ -30,9 +30,9 @@
                 <div class="col-lg-6">
                     <label for="tipo">Tipo de lugar</label>
                     <select class="form-control" name="tipo" id="tipo">
-                        <option value="1">Restaurant</option>
-                        <option value="2">Bar</option>
-                        <option value="3">Cantina</option>
+                        @foreach ($listadoTipos as $tipo)
+                            <option value="{{ $tipo->id }}">{{ $tipo->nombre }}</option>
+                        @endforeach
                     </select>
                     <br>
                     <label for="direccion">Direccion</label>

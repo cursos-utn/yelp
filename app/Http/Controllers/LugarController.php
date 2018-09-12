@@ -51,10 +51,27 @@ class LugarController extends Controller {
 		return redirect()->back()->with('message', 'Lugar creado correctamente!');
 
 	}
+
+	public function traerLugares()
+	{
+		$listadoTipos = \App\Tipo::all();
+		return view('lugares_crear', ['listadoTipos' => $listadoTipos]);
+	}
 	
-	public function download($hash) {
+	public function download($hash) 
+	{
         return response()->download(storage_path('app/images/'.$hash));
-    }
+	}
+	
+	public function ver($id)
+	{
+		$lugar = \App\Lugar::find($id);
+
+		$creador = \App\User::where('id', $lugar->creador_id)->first();
+		
+		return view('lugar', ['lugar' => $lugar, 'creador' => $creador]);
+
+	}
 
 }
 
