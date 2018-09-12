@@ -38,8 +38,10 @@ class LugarController extends Controller {
     }
 
     public function crear(Request $request) {
+
+        $listado = \App\Tipo::all();
           
-        return view('crear');
+        return view('crear', ['tipo' =>$listado]);
     
     }
 
