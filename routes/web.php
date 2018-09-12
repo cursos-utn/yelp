@@ -15,7 +15,7 @@ use Illuminate\Http\Request ;
 use Illuminate\Support\Facades\Input;
 
 //Route::get('/', 'IndexController@index');
-Route::get('/', 'LugarController@listarLugar');
+Route::get('/', 'LugarController@home');
 
 Auth::routes();
 
@@ -31,6 +31,7 @@ Route::get('/prueba',function(Request $request){
         echo "Temperatura: ".$response->body->main->temp;
         
 });
+Route::get('/logout', 'Auth\LoginController@logout'); 
 
 
 Route::post('/search',function(Request $request){
@@ -56,6 +57,17 @@ Route::get('/tipo/{id}', function($id) {
 });
 
 Route::get('/lugares', 'LugarController@listarLugar');
+
+Route::get('/lugares/crear', 'LugarController@crear');
+
+Route::post('/lugares', 'LugarController@agregar');
+
+Route::get('/lugares/{id}', 'LugarController@editar');
+
+Route::post('/lugares/{id}', 'LugarController@actualizar');
+
+Route::get('/lugares/borrar/{id}', 'LugarController@borrar');
+
 
 Route::get('/fragmentos/lugares.html', 'LugarController@listarFragmento');
 

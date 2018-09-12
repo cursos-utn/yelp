@@ -15,10 +15,16 @@
 
 
 
-        <div class="container">
-            <h1>Lugares</h1>
+        <div class="container-fluid">
             
-                </div>
+            <div class="row">
+                <div class="col-6">
+                    <h1>Lugares</h1>
+                     @if(Auth::check())
+
+                    <a href="/yelp/public/lugares/crear" class = "btn btn-primary">Añadir Lugar</a>
+                    @endif
+               
            
             <table class="table table-striped table-condensed">
                 <thead>
@@ -30,7 +36,8 @@
                         <th>Telefonos</th>
                         <th>Escala de Costo</th>
                         <th>Reputacion</th>
-                        <th>Tipo</th>
+                        <th></th>
+                        <th></th>
                         
                     </tr>
                 </thead>
@@ -41,12 +48,19 @@
                         <td>{{$unaList->barrio}}</td>
                         <td>{{$unaList->horarios}}</td>
                         <td>{{$unaList->telefonos}}</td>
-                        <td>{{$unaList->escala_costos}}</td>
+                        <td>{{$unaList->escala_costo}}</td>
                         <td>{{$unaList->reputacion}}</td>
-                        <td>{{$unaList->tipo->nombre}}</td>
+                        @if(Auth::check())
+                        <td><a href="/yelp/public/lugares/{{$unaList->id}}">Editar</a></td>
+                        <td><a href="/yelp/public/lugares/borrar/{{$unaList->id}}">Borrar</a></td>
+                        @endif
+                        
+                        
                     </tr>
                 @endforeach
             </table>
+            </div>
+            </div>
 
         </div>
 

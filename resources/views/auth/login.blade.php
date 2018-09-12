@@ -57,6 +57,8 @@
                                 <a class="btn btn-link" href="{{ url('/password/reset') }}">
                                     Forgot Your Password?
                                 </a>
+
+                                <a href="/yelp/public/" class = "btn btn-danger">Cancelar</a>
                             </div>
                         </div>
                     </form>

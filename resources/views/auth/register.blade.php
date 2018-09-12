@@ -65,6 +65,8 @@
                                 <button type="submit" class="btn btn-primary">
                                     Register
                                 </button>
+
+                                <a href="/yelp/public/" class = "btn btn-danger">Cancelar</a>
                             </div>
                         </div>
                     </form>

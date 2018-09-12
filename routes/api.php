@@ -38,4 +38,4 @@ Route::delete('/tipos/{id}', 'ApiTipoController@borrar');
 
 Route::get('/lugares', 'ApiLugarController@listar');
 
-Route::get('/lugares', 'ApiLugarController@listar');
+
