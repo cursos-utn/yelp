@@ -27,7 +27,7 @@
                 </thead>
                 @foreach ($list as $unaList)
                     <tr>
-                        <td>{{$unaList->nombre}}</td>
+                        <td><a href="lugares/{{ $unaList->id }}">{{$unaList->nombre}}</a></td>
                         <td>{{$unaList->direccion}}</td>
                         <td>{{$unaList->barrio}}</td>
                         <td>{{$unaList->horarios}}</td>

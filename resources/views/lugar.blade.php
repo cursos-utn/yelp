@@ -8,7 +8,7 @@
     <div class="row text-center">
         <div class="col-lg-12">
             <h1>{{ $lugar->nombre }}</h2>
-            <p>Fecha de alta: {{ $lugar->created_at}} | Por: {{ $creador->name}} </p>
+            <p>Fecha de alta: {{ $lugar->created_at->format('d/m/Y') }} | Por: {{ $creador->name}} </p>
             <hr>
         </div>
     </div>
