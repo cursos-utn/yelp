@@ -8,6 +8,7 @@ class Review extends Model
 {
     protected $table="review";
 
+
     public function lugar()
     {
         return $this->belongsTo('App\Lugar');

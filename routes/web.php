@@ -59,7 +59,7 @@ Route::get('/lugares', 'LugarController@listarLugar');
 
 Route::get('/fragmentos/lugares.html', 'LugarController@listarFragmento');
 
-Route::get('/html', function() {
+Route::get('/prueba1', function() {
     return view('principal');
 });
 
@@ -67,4 +67,7 @@ Route::get('/datatables', function() {
     return view('datatables');
 });
 
+Route::get('/lugar/create', 'LugarController@new');
+Route::post('/lugar/create', 'LugarController@create');
+Route::get('/lugar/download/{hash}', 'LugarController@download');
 ?>

@@ -36,6 +36,23 @@ class LugarController extends Controller {
     	return view('lugar_fragmento', ['list' => $list]);
     }
 
+    public function new() {
+        $tipos = \App\Tipo::all();
+        return view('lugar_form', ["tipos" => $tipos]);
+    }
+
+    public function create(Request $request) {
+        //$path = $request->file('imagen')->store('avatars', 'public');
+        //Storage::setVisibility($path, 'public')
+        //echo $path;
+        die();
+
+    }
+
+    public function download($hash) {
+        return response()->download(storage_path('app/public/avatars/'.$hash));
+    }
+
 }
 
 ?>
