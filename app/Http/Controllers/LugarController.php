@@ -92,20 +92,22 @@ class LugarController extends Controller {
 
 	}
 
-	public function actualizar(Request $request)
+	public function actualizar(Request $request, $id)
     {
-		$lugarEditado = $request->all();
+		$lugar = \App\Lugar::findOrFail($id);
 
-        // Le aclaro acá cuál es el campo del FORM con nombre diferente.
-        $lugarEditado['tipo_id'] = $lugarEditado['tipo'];
-        $lugarEditado['creador_id'] = $request->user()->id;
+		$lugar->nombre = $request->nombre;
+		$lugar->direccion = $request->direccion;
+		$lugar->barrio = $request->barrio;
+		$lugar->horarios = $request->horarios;
+		$lugar->telefonos = $request->telefonos;
+		$lugar->tipo_id = $request->tipo_id;
+		$lugar->save();
 
-		\App\Lugar::update($lugarEditado);
-		
 		return redirect()->back()->with('message', 'Lugar editado correctamente!');
 
 	}
-
+	
 }
 
 ?>
