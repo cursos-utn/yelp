@@ -73,6 +73,39 @@ class LugarController extends Controller {
 
 	}
 
+	public function borrar($id)
+	{
+		$borrado = \App\Lugar::find($id);
+
+		$borrado->delete();
+
+		return redirect()->back()->with('message', 'Lugar borrado correctamente!');
+
+	}
+
+	public function editar ($id)
+	{
+		$listadoTipos = \App\Tipo::all();
+		$editable = \App\Lugar::find($id);
+
+		return view('lugares_editar', ['editable' => $editable, 'listadoTipos' => $listadoTipos]);
+
+	}
+
+	public function actualizar(Request $request)
+    {
+		$lugarEditado = $request->all();
+
+        // Le aclaro acá cuál es el campo del FORM con nombre diferente.
+        $lugarEditado['tipo_id'] = $lugarEditado['tipo'];
+        $lugarEditado['creador_id'] = $request->user()->id;
+
+		\App\Lugar::update($lugarEditado);
+		
+		return redirect()->back()->with('message', 'Lugar editado correctamente!');
+
+	}
+
 }
 
 ?>

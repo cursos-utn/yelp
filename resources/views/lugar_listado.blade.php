@@ -4,7 +4,11 @@
 @section('content')
 
 @include('partials.search')
-
+    @if (session()->has('message'))
+        <div class="alert alert-success">
+            {{ @session()->get('message') }}
+        </div>
+    @endif
     <div class="container">
         <div class="row">
             <h1>Lugares</h1>
@@ -22,6 +26,8 @@
                         <th>Reputacion</th>
                         <th>Tipo</th>
                         <th>Imagen</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
                         
                     </tr>
                 </thead>
@@ -36,7 +42,9 @@
                         <td>{{$unaList->reputacion}}</td>
                         <td>{{$unaList->tipo->nombre}}</td>
                         <td> <img src="{{ asset('/lugar/download/'.$unaList->foto)}}" class="img img-thumbnail" style="max-width: 120px"></td>
-                        
+                        <td><a href='{{URL::to("/lugares/editar/$unaList->id")}}' class="text-success">editar lugar</a></td>
+                        <td><a href='{{URL::to("/lugares/borrar/$unaList->id")}}' class="text-danger">Borrar lugar</a></td>
+
                     </tr>
                 @endforeach
             </table>

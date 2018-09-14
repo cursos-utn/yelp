@@ -73,9 +73,11 @@ Route::get('/lugar/download/images/{hash}', 'LugarController@download');
 
 Route::get('/lugares/{id}', 'LugarController@ver');
 
-//Route::post('/lugares/{id}', 'ApiLugarController@actualizar');
+Route::get('/lugares/editar/{id}', 'LugarController@editar');
 
-//Route::get('/lugares/borrar/{id}', 'ApiLugarController@borrar');
+Route::post('/lugares/editar/{id}', 'LugarController@actualizar');
+
+Route::get('/lugares/borrar/{id}', 'LugarController@borrar');
 
 
 
