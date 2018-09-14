@@ -12,6 +12,8 @@
 			@if(Auth::check())
 			<a  href = "/yelp/public/logout"class="btn btn-danger ml-auto">Logout</a>
 			<a  href = "/yelp/public/lugares/crear"class="btn btn-primary">Añadir Lugar</a>
+            <a href="/yelp/public/lugares" class = "btn btn-info">Editar Lugar</a>
+
 		
 			@else
 

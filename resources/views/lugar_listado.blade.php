@@ -23,6 +23,7 @@
                      @if(Auth::check())
 
                     <a href="/yelp/public/lugares/crear" class = "btn btn-primary">Añadir Lugar</a>
+                    <a href="/yelp/public/" class = "btn btn-danger">Regresar</a>
                     @endif
                
            
